@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import React, { useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
-import axios from 'axios';
+import React, { useState } from "react";
+import { View, TextInput, Button, Text } from "react-native";
+import axios from "axios";
 
 const ChatComponent = () => {
-  const [userInput, setUserInput] = useState('');
-  const [generatedResponse, setGeneratedResponse] = useState('');
+  const [userInput, setUserInput] = useState("");
+  const [generatedResponse, setGeneratedResponse] = useState("");
 
   const handleUserInput = text => {
     setUserInput(text);
@@ -13,12 +13,12 @@ const ChatComponent = () => {
 
   const generateResponse = async () => {
     try {
-      const response = await axios.post('https://api.example.com/chatgpt', {
+      const response = await axios.post("https://api.chatgpt.com/generate", {
         input: userInput
       }, {
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY'
+          "Content-Type": "application/json",
+          Authorization: "Bearer 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"
         }
       });
       setGeneratedResponse(response.data.response);
